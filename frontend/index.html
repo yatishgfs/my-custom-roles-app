@@ -29,7 +29,8 @@
     <pre></pre>
     <script>
         async function getUserInfo() {
-            const response = await fetch('/.auth/me');
+            let url = "https://customrolesfn.azurewebsites.net/api/httpexample";
+            const response = await fetch(url);  //('/.auth/me');
             const user = await response.json();
             const pre = document.querySelector('pre');
             pre.textContent = JSON.stringify(user, null, 2);
