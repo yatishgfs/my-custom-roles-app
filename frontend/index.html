@@ -25,6 +25,11 @@
             <li><a href="/admin/">Only users in the admin custom role can access this page</a></li>
         </ul>
     </div>
+    
+    <div>
+        <button id="foo" onclick="getUserInfo()">User Info</button>
+    </div>
+    
     <hr>
     <pre></pre>
     <script>
@@ -37,7 +42,7 @@
             pre.textContent = await response.text();
         }
 
-        getUserInfo();
+        //getUserInfo();
     </script>
 </body>
 
