@@ -27,13 +27,22 @@
     </div>
     
     <div>
-        <button id="foo" onclick="getUserInfo()">User Info</button>
+        <button id="foo" onclick="callAzureFunction()">User Info</button>
     </div>
     
     <hr>
     <pre></pre>
     <script>
         async function getUserInfo() {
+            const response = await fetch('/.auth/me');
+            const user = await response.json();
+            const pre = document.querySelector('pre');
+            pre.textContent = JSON.stringify(user, null, 2);
+        }
+
+        getUserInfo();
+        
+        async function callAzureFunction() {
             let url = "/api/httpexample";
             const response = await fetch(url);  //('/.auth/me');
             //const user = await response.json();
@@ -41,8 +50,6 @@
             //pre.textContent = JSON.stringify(user, null, 2);
             pre.textContent = await response.text();
         }
-
-        //getUserInfo();
     </script>
 </body>
 
